@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.store-header, .add-drug-header {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: #585858;
+}
+
+.main-page-title {
+  flex-grow: 1;
+  font-size: 32px;
+  margin-left: 5%;
+  color: white;
+}
+
+.hospital-menu {
+  text-align: center;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5%;
+}
+
+.hospital-menu li {
+  font-size: 24px;
+  list-style: none;
+  height: 34px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  margin-right: 15px;
+}
+
+td, th {
+  border: 1px solid #787878 ;
+  text-align: center;
+}
+
+th {
+  padding: 8px 12px;
+  font-size: 18px;
+  background-color: #eee;
+  color: 	#585858;
+}
+
+td {
+  border-top: none;
+  padding: 5px 8px;
+  font-size: 16px;
+}
+
+.store-table, .expired-table, .purchase-table, .output-table, .storage-table {
+  margin: auto;
+  margin-top: 5%; 
+}
+
+.add-drug-header {
+  height: 40px;
+  background-color: black;
+}
+
+.add-drug-title {
+  margin-left: 6%;
+  font-size: 16px;
+  color: #fff;
+}
+
+.add-drug-button {
+  margin-left: 2%;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-drug-body {
+  display: block;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  border-top: 1px solid #A0A0A0; 
+}
+
+.input-title {
+  margin-top: 8%;
+  font-size: 16px;
+  font-weight: 800;
+  margin-left: 16%;
+}
+
+.input-container {
+  margin: 12px 0 12px 15%;
+  height: auto;
+  width: 60%;
+}
+
+input, textarea {
+  margin-left: 10px;
+  width: 80%;
+  height: 40px;
+  background-color: #F8F8F8;
+  color: black;
+  font-size: 16px;
+  border: 1px solid #eee;
+}
+
+.input-button {
+  margin: 20px 0 0 21.8%;
+  width: 80px;
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 1px solid #B8B8B8;
+  font-size: 16px;
+  color: #0066FF;
+  height: 40px;
+}

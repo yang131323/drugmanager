@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scable=no">
+  <meta name="keywords" content="node,html,manager,system">
+  <meta name="author" content="@willking">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/index.css">
+  <title>医院药品进销存管理系统</title>
+</head>
+<body>
+  <header>
+      <div class="add-drug-header">
+        <h1 class="add-drug-title">医院药品进销存管理系统</h1>
+        <div class="add-drug-button">库存状态</div>
+      </div>
+  </header>
+  <main>
+    <div class="input-title">添加药品</div>
+    <article class="add-drug-body">
+      <div class="input-container"><label for="drug-name">药品名称 *  <input type="text" id="drug-name"></label></div>
+      <div class="input-container"><label for="drug-vender">厂家名称 *  <input type="text" id="drug-vender"></label></div>
+      <div class="input-container"><label for="drug-specification">规格参数 *  <input type="text" id="drug-specification"></label></div>
+      <div class="input-container"><label for="drug-edate">保质期限 *  <input type="text" id="drug-edate"></label></div>
+      <div class="input-container"><label for="drug-price">零售价格 *  <input type="text" id="drug-price"></label></div>
+      <div class="input-container"><label for="drug-linkman">供应商家 *  <input type="text" id="drug-linkman"></label></div>
+      <div class="input-container"><label for="drug-address">供货地址 *  <input type="text" id="drug-address"></label></div>
+      <div class="input-container"><label for="drug-phone">供货电话 *  <input type="text" id="drug-phone"></label></div>
+      <div class="input-container"><label for="drug-dose">用药说明 *  <textarea type="text" id="drug-dose"></textarea></label></div>
+      <button class="input-button">确定</button>
+    </article>
+  </main>
+  <script src="../js/addDrug.js"></script>
+  <script src="../js/util.js"></script>
+</body>
+</html>
