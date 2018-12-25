@@ -1,27 +1,28 @@
 const Koa = require('koa')
-const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
-const nunjucks = require('nunjucks');
-
-nunjucks.configure('/views', {
-  autoescape: true,
-  throwOnUndefined: true,
-  watch: true
-})
+const { templating } = require('./template');
+const controller = require('./controller');
+const { staticFiles } = require('./staticFile')
 
 const app = new Koa();
-const router = new Router();
 
-app.use(bodyParser());
-
-router.get('/', async (ctx, next) => {
-  console.log('hello word!');
-  console.log('ctx: ', ctx);
-  ctx.response.body = '<h1>医院药品进销管理系统</h1>';
+app.use(async (ctx, next) => {
+  console.log('hospital drug manager system start:' + ctx.request.url + ', method: ' + ctx.request.method + ', path: ' + ctx.path);
   await next();
 })
 
-app.use(router.routes());
+app.use(bodyParser());
+
+app.use(staticFiles('/static/', __dirname));
+
+app.use(templating({
+  autoescape: true,
+  throwOnUndefined: true,
+  noCache: true,
+  watch: true
+}));
+
+app.use(controller());
 
 app.listen(3300);
 console.log('Please open localhost:3300/')

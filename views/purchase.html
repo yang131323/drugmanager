@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scable=no">
-  <meta name="keywords" content="node,html,manager,system">
-  <meta name="author" content="@willking">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/index.css">
-  <title>医院药品进销存管理系统</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block header %}
   <header>
     <div class="add-drug-header">
       <h1 class="add-drug-title">医院药品进销存管理系统</h1>
       <div class="add-drug-button">库存状态</div>
     </div>
   </header>
+{% endblock %}
+{% block main %}
   <main>
     <table cellspacing="0" class="purchase-table">
       <tr>
@@ -62,5 +54,4 @@
     </table>
   </main>
   <script src="../js/util.js"></script>
-</body>
-</html>
+{% endblock %}
