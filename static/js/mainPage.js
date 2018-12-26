@@ -27,15 +27,16 @@ const addListen = function () {
   mainButton[recordState.index].style.border = '3px solid' + recordState.color;
 };
 
-addListen();
+function delOperate (item, url) {
+  const dom = item.previousElementSibling.previousElementSibling;
+  console.log('del', dom.innerText);
+  window.location = url + '?' + 'id=' + dom.innerText;
+};
 
-// setTimeout(() => { tableConstructor([{
-//   title: 'th',
-//   data: ['学号', '姓名', '班级', '学院']
-// }, {
-//   title: 'td',
-//   data: ['1214242', '欧阳巧巧', '网工16101', '计算机学院']
-// }, {
-//   title: 'td',
-//   data: ['3123424', '范俊', '网工16101', '数计学院']
-// }], 'store-table') }, 3000)
+function editOperate (item, url) {
+  const dom = item.previousElementSibling;
+  console.log('edit', dom.innerText);
+  window.location = url + '?' + 'id=' + dom.innerText;
+}
+
+addListen();

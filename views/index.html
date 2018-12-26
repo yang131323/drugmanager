@@ -29,9 +29,13 @@
       {% for item in data %}
         <tr>
           {% for it in order %}
-            <td>{{item[it]}}</td>
+            {% if it === 'edit' %}
+            <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, '/put/drug')">{{item[it]}}</td>
+            {% elif it === 'del' %}
+            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/drug')">{{item[it]}}</td>
             {% else %}
-            <td>无数据</td>
+            <td>{{item[it]}}</td>
+            {% endif %}
           {% endfor %}
         </tr>
       {% endfor %}

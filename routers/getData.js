@@ -13,7 +13,7 @@ const indexPage = async (ctx, next) => {
         attributes: ['linkman', 'address', 'phone']
       });
       data['edate'] = convert(data['edate'], 'yyyymmdd', 'hhmmss')._global;
-      datas.push(Object.assign(data, drug.dataValues));
+      datas.push(Object.assign(data, drug.dataValues, {del: '删除', edit: '编辑'}));
     }
     ctx.render('index.html', {data: datas, label: DRUG.label, order: DRUG.order, title: '库存状态'});
     await next();
@@ -39,10 +39,10 @@ const expiredPage = async (ctx, next) => {
       let data = outputs[i].dataValues;
       const drug = await Drug.findOne({
         where: {id: data.dno},
-        attributes: ['name', 'vender', 'specification']
+        attributes: ['id', 'name', 'vender', 'specification']
       });
       data['odate'] = convert(data['odate'], 'yyyymmdd', 'hhmmss')._global;
-      datas.push(Object.assign(data, drug.dataValues));
+      datas.push(Object.assign(data, drug.dataValues, {del: '删除', edit: '编辑'}));
     }
     ctx.render('expired.html', {data: datas, label: EXPIRED.label, order: EXPIRED.order, title: '过期药品'});
     await next();
@@ -62,7 +62,7 @@ const outputPage = async (ctx, next) => {
         attributes: ['name', 'vender', 'specification']
       });
       data['odate'] = convert(data['odate'], 'yyyymmdd', 'hhmmss')._global;
-      datas.push(Object.assign(data, drug.dataValues));
+      datas.push(Object.assign(data, drug.dataValues, {del: '删除', edit: '编辑'}));
     }
     ctx.render('output.html', {data: datas, label: OUTPUT.label, order: OUTPUT.order, title: '出库记录'});
     await next();
@@ -86,7 +86,7 @@ const purchasePage = async (ctx, next) => {
         attributes: ['linkman', 'address', 'phone']
       });
       data['pdate'] = convert(data['pdate'], 'yyyymmdd', 'hhmmss')._global;
-      datas.push(Object.assign(data, drug.dataValues, sup.dataValues));
+      datas.push(Object.assign(data, drug.dataValues, sup.dataValues, {del: '删除', edit: '编辑'}));
     }
     console.log('purchases:', datas);
     ctx.render('purchase.html', {data: datas, label: PURCHASE.label, order: PURCHASE.order, title: '采购记录'});
@@ -107,7 +107,7 @@ const storagePage = async (ctx, next) => {
         attributes: ['name', 'vender', 'specification']
       });
       data['sdate'] = convert(data['sdate'], 'yyyymmdd', 'hhmmss')._global;
-      datas.push(Object.assign(data, drug.dataValues));
+      datas.push(Object.assign(data, drug.dataValues, {del: '删除', edit: '编辑'}));
     }
     console.log('storage:', datas);
     ctx.render('storage.html', {data: datas, label: STORE.label, order: STORE.order, title: '入库记录'});

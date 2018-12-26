@@ -24,6 +24,8 @@ const tableConstructor = function (data, id) {
   console.log('str: ', str);
 }
 
-document.getElementsByClassName('add-drug-button')[0].addEventListener('click', function () {
-  window.location = 'reserve';
-});
+if (document.getElementsByClassName('add-drug-button')[0]) {
+  document.getElementsByClassName('add-drug-button')[0].addEventListener('click', function () {
+    window.location = 'reserve';
+  });
+}
