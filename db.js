@@ -18,6 +18,7 @@ const opts = {
 const drs = [
   {
     id: '1000000001',
+    sno: '0000000002',
     name: '云南白药',
     vender: '深圳市欧豪有限公司',
     specification: '20ml',
@@ -31,6 +32,7 @@ const drs = [
   },
   {
     id: '1000000002',
+    sno: '0000000001',
     name: '酒精',
     vender: '深圳市欧豪有限公司',
     specification: '50ml',
@@ -44,6 +46,7 @@ const drs = [
   },
   {
     id: '1000000003',
+    sno: '0000000004',
     name: '儿童浆口服液',
     vender: '深圳市欧豪有限公司',
     specification: '70ml',
@@ -57,6 +60,7 @@ const drs = [
   },
   {
     id: '1000000004',
+    sno: '0000000005',
     name: '碘酒',
     vender: '深圳市欧豪有限公司',
     specification: '40ml',
@@ -215,12 +219,12 @@ const outs = [
 ];
 
 const relateTable = [
-  {
-    ins: Drug,
-    data: drs
-  }, {
+ {
     ins: Supplier,
     data: sups
+  },  {
+    ins: Drug,
+    data: drs
   }, {
     ins: Purchase,
     data: purs
@@ -244,4 +248,12 @@ const initTable = async function () {
   }
 };
 
-initTable();
+// initTable();
+
+module.exports = {
+  Drug,
+  Store,
+  Supplier,
+  Purchase,
+  OutRecord,
+}

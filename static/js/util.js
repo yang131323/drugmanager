@@ -25,5 +25,5 @@ const tableConstructor = function (data, id) {
 }
 
 document.getElementsByClassName('add-drug-button')[0].addEventListener('click', function () {
-  window.location = 'index.html';
+  window.location = 'reserve';
 });

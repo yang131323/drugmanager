@@ -9,49 +9,25 @@
 {% endblock %}
 {% block main %}
   <main>
+    <div class="table-title">{{title}}</div>
     <table cellspacing="0" class="purchase-table">
       <tr>
-        <th>采购编号</th>
-        <th>供货商编号</th>
-        <th>药品编号</th>
-        <th>数量</th>
-        <th>入库日期</th>
+        {% for it in order %}
+          <th>{{label[it]}}</th>
+          {% else %}
+          <th>无标题</th>
+        {% endfor %}
       </tr>
-      <tr>
-        <td>12781278421421234234</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-      </tr>
-      <tr>
-        <td>12781278421421234234</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-      </tr>
-      <tr>
-        <td>12781278421421234234</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-      </tr>
-      <tr>
-        <td>12781278421421234234</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-      </tr>
-      <tr>
-        <td>12781278421421234234</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-        <td>127812784</td>
-      </tr>
+      {% for item in data %}
+        <tr>
+          {% for it in order %}
+            <td>{{item[it]}}</td>
+            {% else %}
+            <td>无数据</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
     </table>
   </main>
-  <script src="../js/util.js"></script>
+  <script src="/static/js/util.js"></script>
 {% endblock %}

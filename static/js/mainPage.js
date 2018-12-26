@@ -21,7 +21,7 @@ const addListen = function () {
       if (recordState.index) { mainButton[recordState.index].style.color = '#fff'; }
       mainButton[i].style.border = '3px solid' + recordState.color;
       recordState.index = i;
-      window.location = allFun[i] + '.html';
+      window.location = allFun[i];
     });
   }
   mainButton[recordState.index].style.border = '3px solid' + recordState.color;

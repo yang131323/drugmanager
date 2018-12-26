@@ -9,18 +9,22 @@
 {% endblock %}
 {% block main %}
   <main>
-    <div class="input-title">添加药品</div>
+    <div class="input-title">{{title}}</div>
     <article class="add-drug-body">
-      <div class="input-container"><label for="drug-name">药品名称 *  <input type="text" id="drug-name"></label></div>
-      <div class="input-container"><label for="drug-vender">厂家名称 *  <input type="text" id="drug-vender"></label></div>
-      <div class="input-container"><label for="drug-specification">规格参数 *  <input type="text" id="drug-specification"></label></div>
-      <div class="input-container"><label for="drug-edate">保质期限 *  <input type="text" id="drug-edate"></label></div>
-      <div class="input-container"><label for="drug-price">零售价格 *  <input type="text" id="drug-price"></label></div>
-      <div class="input-container"><label for="drug-linkman">供应商家 *  <input type="text" id="drug-linkman"></label></div>
-      <div class="input-container"><label for="drug-address">供货地址 *  <input type="text" id="drug-address"></label></div>
-      <div class="input-container"><label for="drug-phone">供货电话 *  <input type="text" id="drug-phone"></label></div>
-      <div class="input-container"><label for="drug-dose">用药说明 *  <textarea type="text" id="drug-dose"></textarea></label></div>
-      <button class="input-button">确定</button>
+      <form action="/drug/detail">
+        <div class="input-container"><label for="drug-name">药品名称 *  <input type="text" id="drug-name" name="name" required></label></div>
+        <div class="input-container"><label for="drug-vender">厂家名称 *  <input type="text" id="drug-vender" name="vender" required></label></div>
+        <div class="input-container"><label for="drug-specification">规格参数 *  <input type="text" id="drug-specification" name="specification" required></label></div>
+        <div class="input-container"><label for="drug-edate">生产日期 *  <input type="datetime-local" id="drug-edate" name="edate" required></label></div>
+        <div class="input-container"><label for="drug-">采购时间 *  <input type="datetime-local" id="drug-price" name="pdate" required></label></div>
+        <div class="input-container"><label for="drug-price">零售价格 *  <input type="number" id="drug-price" name="price" min="0" step="0.01" required></label></div>
+        <div class="input-container"><label for="drug-quantity">采购数量 *  <input type="number" id="drug-quantity" name="quantity" min="0" required></label></div>
+        <div class="input-container"><label for="drug-linkman">供应商家 *  <input type="text" id="drug-linkman" name="linkman" required></label></div>
+        <div class="input-container"><label for="drug-address">供货地址 *  <input type="text" id="drug-address" name="address" required></label></div>
+        <div class="input-container"><label for="drug-phone">供货电话 *  <input type="text" id="drug-phone" name="phone" required></label></div>
+        <div class="input-container"><label for="drug-dose">用药说明 *  <textarea type="text" id="drug-dose" name="useg" required></textarea></label></div>
+        <button class="input-button" type="submit">确定</button>
+      </form>
     </article>
   </main>
   <script src="/static/js/addDrug.js"></script>

@@ -7,6 +7,10 @@ const drugAttrs = {
     primaryKey: true,
     autoIncrement: true
   },
+  sno: {
+    type: Sequelize.STRING(10),
+    allowNull: false
+  },
   name: {
     type: Sequelize.STRING(20),
     allowNull: true
@@ -19,7 +23,7 @@ const drugAttrs = {
     type: Sequelize.STRING(10),
     allowNull: true
   },
-  usage: {
+  usag: {
     type: Sequelize.STRING(100),
     allowNull: true
   },

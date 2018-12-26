@@ -59,9 +59,21 @@ td {
   font-size: 16px;
 }
 
+.table-title {
+  margin: 5% 10% 0 10%;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 0 0 6px 15px;
+  border-bottom: 1px solid #A0A0A0;
+}
+
+main {
+  overflow: hidden;
+}
+
 .store-table, .expired-table, .purchase-table, .output-table, .storage-table {
   margin: auto;
-  margin-top: 5%; 
+  margin-top: 3%;
 }
 
 .add-drug-header {
@@ -87,6 +99,7 @@ td {
   width: 70%;
   margin: auto;
   margin-top: 10px;
+  padding-top: 3%;
   border-top: 1px solid #A0A0A0; 
 }
 
@@ -104,6 +117,7 @@ td {
 }
 
 input, textarea {
+  text-align: left;
   margin-left: 10px;
   width: 80%;
   height: 40px;
