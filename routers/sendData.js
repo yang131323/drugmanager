@@ -1,4 +1,4 @@
-const { dealDrug, dealOut, dealStore, dealPurchase, dealSupplier } = require('../dataProcess');
+const { dealDrug, dealPurchase, dealSupplier } = require('../dataProcess');
 const { Drug, Supplier, Store, Purchase, OutRecord } = require('../db');
 
 const drugDatas = async (ctx, next) => {

@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-let DRUGID = Number('1000000005');
-let SUPPLIERID = Number('0000000006');
-let OUTRECORDID = Number('15457852321766');  // 14
+let DRUGID = Number('1000000106');
+let SUPPLIERID = Number('0000000036');
+let OUTRECORDID = Number('15457852321766');
 let STOREID = Number('16457852321766');
 let PURCHASEID = Number('2018082905');
 const MAXNUM = 899999;
@@ -28,12 +28,14 @@ const dealDrug = function (data, type = 'random') {
   try {
     data.price = data.price || 0.00;
     let id = '0000000000';
-    if (type !== 'random') { id = (DRUGID++).toString.padStart(10, '0'); }
-    id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    if (type !== 'random') {
+      id = (DRUGID++).toString().padStart(10, '0');
+    } else {
+      id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    }
     const sno = Math.ceil(Math.random() * (SUPPLIERID - 1)).toString().padStart(10, '0');
     const version = changeRecord();
     const drug = {id, sno, ...data, ...version};
-    console.log('dealDrug: ', drug);
     fileResult.write(new Date() + '\nDRUGID: ' + DRUGID + '\nSUPPLIERID: ' + SUPPLIERID + '\nOUTRECORDID: ' + OUTRECORDID + '\nSTOREID: ' + STOREID + '\n PURCHASEID: ' + PURCHASEID + '\n');
     return drug;
   } catch (e) {
@@ -44,11 +46,13 @@ const dealDrug = function (data, type = 'random') {
 const dealSupplier = function (data, type = 'random') {
   try {
     let id = '0000000000';
-    if (type !== 'random') { id = (SUPPLIERID++).toString.padStart(10, '0'); }
-    id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    if (type !== 'random') {
+      id = (SUPPLIERID++).toString().padStart(10, '0');
+    } else {
+      id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    }
     const version = changeRecord();
     const supplier = {id, ...data, ...version};
-    console.log('dealSupplier: ', supplier);
     fileResult.write(new Date() + '\nDRUGID: ' + DRUGID + '\nSUPPLIERID: ' + SUPPLIERID + '\nOUTRECORDID: ' + OUTRECORDID + '\nSTOREID: ' + STOREID + '\n PURCHASEID: ' + PURCHASEID + '\n');
     return supplier;
   } catch (e) {
@@ -59,13 +63,15 @@ const dealSupplier = function (data, type = 'random') {
 const dealPurchase = function (data, type = 'random') {
   try {
     let id = '0000000000';
-    if (type !== 'random') { id = (PURCHASEID++).toString.padStart(10, '0'); }
-    id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    if (type !== 'random') {
+      id = (PURCHASEID++).toString().padStart(10, '0');
+    } else {
+      id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    }
     const sno = Math.ceil(Math.random() * (SUPPLIERID - 1)).toString().padStart(10, '0');
     const dno = (1000000000 + Math.ceil(Math.random() * (DRUGID % 1000000000 - 1))).toString().padStart(10, '0');
     const version = changeRecord();
     const purchase = {id, sno, dno, ...data, ...version};
-    console.log('dealPurchase: ', purchase);
     fileResult.write(new Date() + '\nDRUGID: ' + DRUGID + '\nSUPPLIERID: ' + SUPPLIERID + '\nOUTRECORDID: ' + OUTRECORDID + '\nSTOREID: ' + STOREID + '\n PURCHASEID: ' + PURCHASEID + '\n');
     return purchase;
   } catch (e) {
@@ -76,12 +82,15 @@ const dealPurchase = function (data, type = 'random') {
 const dealStore = function (data, type = 'random') {
   try {
     let id = '0000000000';
-    if (type !== 'random') { id = (STOREID++).toString.padStart(10, '0'); }
+    if (type !== 'random') {
+      id = (STOREID++).toString().padStart(10, '0');
+    } else {
+      id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-4);
+    }
     id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-8);
     const dno = (1000000000 + Math.ceil(Math.random() * (DRUGID % 1000000000 - 1))).toString().padStart(10, '0');
     const version = changeRecord();
     const store = {id, dno, ...data, ...version};
-    console.log('dealStore: ', store);
     fileResult.write(new Date() + '\nDRUGID: ' + DRUGID + '\nSUPPLIERID: ' + SUPPLIERID + '\nOUTRECORDID: ' + OUTRECORDID + '\nSTOREID: ' + STOREID + '\n PURCHASEID: ' + PURCHASEID + '\n');
     return store;
   } catch (e) {
@@ -92,12 +101,14 @@ const dealStore = function (data, type = 'random') {
 const dealOut = function (data, type = 'random') {
   try {
     let id = '0000000000';
-    if (type !== 'random') { id = (OUTRECORDID++).toString.padStart(10, '0'); }
-    id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-8);
+    if (type !== 'random') {
+      id = (OUTRECORDID++).toString().padStart(10, '0');
+    } else {
+      id = `${Math.floor(Math.random() * MAXNUM) + MINNUM}` + Date.now().toString().substr(-8);
+    }
     const dno = (1000000000 + Math.ceil(Math.random() * (DRUGID % 1000000000 - 1))).toString().padStart(10, '0');
     const version = changeRecord();
     const out = {id, dno, ...data, ...version};
-    console.log('dealOut: ', out);
     fileResult.write(new Date() + '\nDRUGID: ' + DRUGID + '\nSUPPLIERID: ' + SUPPLIERID + '\nOUTRECORDID: ' + OUTRECORDID + '\nSTOREID: ' + STOREID + '\n PURCHASEID: ' + PURCHASEID + '\n');
     return out;
   } catch (e) {

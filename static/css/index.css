@@ -11,14 +11,14 @@ html, body {
 .store-header, .add-drug-header {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 50px;
   width: 100%;
-  background-color: #585858;
+  background-color: black;
 }
 
 .main-page-title {
   flex-grow: 1;
-  font-size: 32px;
+  font-size: 20px;
   margin-left: 5%;
   color: white;
 }
@@ -32,9 +32,9 @@ html, body {
 }
 
 .hospital-menu li {
-  font-size: 24px;
+  font-size: 16px;
   list-style: none;
-  height: 34px;
+  height: auto;
   cursor: pointer;
   color: white;
   text-align: center;
@@ -69,6 +69,8 @@ td {
 
 main {
   overflow: hidden;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .store-table, .expired-table, .purchase-table, .output-table, .storage-table {
