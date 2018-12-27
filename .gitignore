@@ -1,4 +1,5 @@
 node_modules/
+hospitalFile/
 dist/
 .vscode/
 .idea/
