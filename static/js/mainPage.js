@@ -27,7 +27,7 @@ const addListen = function () {
     mainButton[i].addEventListener('click', () => {
       if (recordState.index === i) { return; }
       if (recordState.index) { mainButton[recordState.index].style.color = '#fff'; }
-      mainButton[i].style.border = '3px solid' + recordState.color;
+      mainButton[i].style.color = recordState.color;
       recordState.index = i;
       window.location = allFun[i];
     });
