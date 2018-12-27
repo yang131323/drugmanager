@@ -12,13 +12,13 @@ const DRUG = {
     'phone': '供货联系方式',
     'usag': '使用方法',
     'del': '删除药品',
-    'edit': '编辑药品',
+    'edit': '出售',
     'id': '药品编号'
   }
 };
 
 const OUTPUT = {
-  order: ['name', 'vender', 'specification', 'odate', 'quantity', 'id', 'edit', 'del'],
+  order: ['name', 'vender', 'specification', 'odate', 'quantity', 'id', 'del'],
   label: {
     'name': '药名',
     'vender': '厂家',
@@ -26,13 +26,12 @@ const OUTPUT = {
     'odate': '出库时间',
     'quantity': '出库数量',
     'del': '删除记录',
-    'edit': '编辑记录',
     'id': '出库编号'
   }
 };
 
 const STORE = {
-  order: ['name', 'vender', 'specification', 'sdate', 'quantity', 'id', 'edit', 'del'],
+  order: ['name', 'vender', 'specification', 'sdate', 'quantity', 'id', 'del'],
   label: {
     'name': '药名',
     'vender': '厂家',
@@ -40,13 +39,12 @@ const STORE = {
     'sdate': '入库时间',
     'quantity': '入库数量',
     'del': '删除记录',
-    'edit': '编辑记录',
     'id': '入库编号'
   }
 };
 
 const PURCHASE = {
-  order: ['name', 'vender', 'specification', 'pdate', 'linkman', 'address', 'phone', 'quantity', 'id', 'edit', 'del'],
+  order: ['name', 'vender', 'specification', 'pdate', 'linkman', 'address', 'phone', 'quantity', 'id', 'del'],
   label: {
     'name': '药名',
     'vender': '厂家',
@@ -57,13 +55,12 @@ const PURCHASE = {
     'phone': '供货联系方式',
     'quantity': '采购数量',
     'del': '删除记录',
-    'edit': '编辑记录',
     'id': '采购编号'
   }
 };
 
 const EXPIRED = {
-  order: ['name', 'vender', 'specification', 'odate', 'quantity', 'id', 'edit', 'del'],
+  order: ['name', 'vender', 'specification', 'odate', 'quantity', 'id', 'del'],
   label: {
     'name': '药名',
     'vender': '厂家',
@@ -71,7 +68,6 @@ const EXPIRED = {
     'odate': '过期时间',
     'quantity': '过期数量',
     'del': '删除药品',
-    'edit': '编辑药品',
     'id': '药品编号'
   }
 };

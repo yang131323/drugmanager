@@ -149,6 +149,22 @@ const updateStore = async (ctx, next) => {
   }
 };
 
+const saleDrug = async (ctx, next) => {
+  try {
+    const datas = ctx.request.query;
+    const drug = await Drug.findById(datas.id);
+    const content = { reserve: drug.dataValues.reserve - 1}
+    await drug.update(content)
+    ctx.response.status = 200;
+    ctx.response.redirect('/reserve');
+    await next();
+  } catch (e) {
+    ctx.response.status = 404;
+    ctx.response.body = '<h1 style="margin: 8% 40% 0 40%;">网页丢失了！</h1>';
+    console.log('deleteDrug: ' + e.message);
+  }
+}
+
 module.exports = {
   'GET /drug/detail': drugDatas,
   'GET /delete/drug': deleteDrug,
@@ -161,4 +177,5 @@ module.exports = {
   'GET /put/purchase': updatePurchase,
   'GET /delete/store': deleteStore,
   'GET /put/store': updateStore,
+  'GET /sale/drug': saleDrug
 }

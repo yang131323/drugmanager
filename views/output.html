@@ -9,8 +9,10 @@
 {% endblock %}
 {% block main %}
   <main>
-    <div class="table-title">{{title}}</div>
-    <table cellspacing="0" class="output-table">
+    <div class="table-title">{{title}}
+      <button onclick="exportExcel('/output')" class="export-button">导出Excel</button>
+    </div>
+    <table cellspacing="0" class="output-table"  title="点击相应单元格进行编辑">
         <tr>
             {% for it in order %}
               <th>{{label[it]}}</th>
@@ -25,8 +27,10 @@
                 <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="ediOperate(this, '/put/output')">{{item[it]}}</td>
                 {% elif it === 'del' %}
                 <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/output')">{{item[it]}}</td>
-                {% else %}
+                {% elif it === 'id' %}
                 <td>{{item[it]}}</td>
+                {% else %}
+                <td contenteditable onblur="editOperate(this, 'output', 5, '/put/output')">{{item[it]}}</td>
                 {% endif %}
               {% endfor %}
             </tr>

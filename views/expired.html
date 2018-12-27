@@ -9,8 +9,10 @@
 {% endblock %}
 {% block main %}
   <main>
-    <div class="table-title">{{title}}</div>
-    <table cellspacing="0" class="expired-table">
+    <div class="table-title">{{title}}
+      <button onclick="exportExcel('/expired')" class="export-button">导出Excel</button>
+    </div>
+    <table cellspacing="0" class="expired-table"  title="点击相应单元格进行编辑">
       <tr>
         {% for it in order %}
           <th>{{label[it]}}</th>
@@ -25,8 +27,10 @@
             <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, '/put/expire')">{{item[it]}}</td>
             {% elif it === 'del' %}
             <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/expire')">{{item[it]}}</td>
-            {% else %}
+            {% elif it === 'id' %}
             <td>{{item[it]}}</td>
+            {% else %}
+            <td contenteditable onblur="editOperate(this, 'expired', 5, '/put/expire')">{{item[it]}}</td>
             {% endif %}
           {% endfor %}
         </tr>

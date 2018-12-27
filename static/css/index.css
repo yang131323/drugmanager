@@ -127,7 +127,7 @@ input, textarea {
   border: 1px solid #eee;
 }
 
-.input-button {
+button {
   margin: 20px 0 0 21.8%;
   width: 80px;
   background-color: #fff;
@@ -136,4 +136,20 @@ input, textarea {
   font-size: 16px;
   color: #0066FF;
   height: 40px;
+}
+
+.export-button {
+  margin-left: 30px;
+  width: 100px;
+  padding: 10px 5px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+dialog  {
+  border: 1px solid #eee;
+  margin-top: 15%;
+  width: 20%;
+  text-align: center;
+  padding-top: 0;
 }
