@@ -28,7 +28,7 @@ const exportTable = function (header, datas) {
     }
     console.log(str);
     fileResult.write(str);
-    fileResult.end();
+    // fileResult.end();
     console.log('file path is :' + fileURL);
     return fileURL;
   } catch (e) {
