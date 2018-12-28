@@ -45,7 +45,7 @@ const updateDrug = async (ctx, next) => {
     const datas = ctx.request.query;
     const drug = await Drug.findById(datas.id);
     delete datas.id;
-    await drug.update(datas)
+    await drug.update(datas);
     ctx.response.status = 200;
     ctx.response.redirect('/reserve');
     await next();
@@ -76,7 +76,7 @@ const updateOutput = async (ctx, next) => {
     const datas = ctx.request.query;
     const out = await OutRecord.findById(datas.id);
     delete datas.id;
-    await out.update(datas)
+    await out.update(datas);
     ctx.response.status = 200;
     ctx.response.redirect('/reserve');
     await next();
@@ -138,7 +138,7 @@ const updateStore = async (ctx, next) => {
     const datas = ctx.request.query;
     const store = await Store.findById(datas.id);
     delete datas.id;
-    await store.update(datas)
+    await store.update(datas);
     ctx.response.status = 200;
     ctx.response.redirect('/reserve');
     await next();
@@ -154,7 +154,7 @@ const saleDrug = async (ctx, next) => {
     const datas = ctx.request.query;
     const drug = await Drug.findById(datas.id);
     const content = { reserve: drug.dataValues.reserve - 1}
-    await drug.update(content)
+    await drug.update(content);
     ctx.response.status = 200;
     ctx.response.redirect('/reserve');
     await next();

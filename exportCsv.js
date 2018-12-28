@@ -26,7 +26,6 @@ const exportTable = function (header, datas) {
       }
       str += '\n';
     }
-    console.log(str);
     fileResult.write(str);
     // fileResult.end();
     console.log('file path is :' + fileURL);
