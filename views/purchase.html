@@ -10,9 +10,10 @@
 {% block main %}
   <main>
     <div class="table-title">{{title}}
-      <button onclick="exportExcel('/purchase')" class="export-button">导出</button>
+      <button onclick="exportExcel('/reserve')" class="export-button">导出csv</button>
+      <button onclick="exportClient('drug-purchase', '药品采购表')" class="export-button"><a id="export-button-excel">导出Excel</a></button>
     </div>
-    <table cellspacing="0" class="purchase-table"  title="点击相应单元格进行编辑">
+    <table cellspacing="0" class="purchase-table"  title="点击相应单元格进行编辑" id="drug-purchase">
       <tr>
         {% for it in order %}
           <th>{{label[it]}}</th>
@@ -24,13 +25,13 @@
         <tr>
           {% for it in order %}
             {% if it === 'edit' %}
-            <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, '/put/purchase')">{{item[it]}}</td>
+            <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, 'purchase', 8, '/put/purchase')">{{item[it]}}</td>
             {% elif it === 'del' %}
-            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/purchase')">{{item[it]}}</td>
+            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/purchase', false)">{{item[it]}}</td>
             {% elif it === 'id' %}
             <td>{{item[it]}}</td>
             {% else %}
-            <td contenteditable onblur="editOperate(this, 'purchase', 5, '/put/purchase')">{{item[it]}}</td>
+            <td contenteditable onblur="editOperate(this, 'purchase', 8, '/put/purchase')">{{item[it]}}</td>
             {% endif %}
           {% endfor %}
         </tr>

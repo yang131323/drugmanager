@@ -42,10 +42,14 @@ const deleteDrug = async (ctx, next) => {
 
 const updateDrug = async (ctx, next) => {
   try {
+    const SUPMES = ['linkman', 'address', 'phone'];
     const datas = ctx.request.query;
-    const drug = await Drug.findById(datas.id);
+    let intity = await Drug.findById(datas.id);
+    if (SUPMES.includes(Object.keys(datas)[1])) {
+      intity = await Supplier.findById(intity.dataValues['sno']);
+    }
     delete datas.id;
-    await drug.update(datas);
+    await intity.update(datas);
     ctx.response.status = 200;
     ctx.response.redirect('/reserve');
     await next();
@@ -62,7 +66,7 @@ const deleteOutput = async (ctx, next) => {
     const out = await OutRecord.findById(datas.id);
     await out.destroy();
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/output');
     await next();
   } catch (e) {
     ctx.response.status = 404;
@@ -73,12 +77,16 @@ const deleteOutput = async (ctx, next) => {
 
 const updateOutput = async (ctx, next) => {
   try {
+    const DRUGMES = ['name', 'vender', 'specification'];
     const datas = ctx.request.query;
-    const out = await OutRecord.findById(datas.id);
+    let intity = await OutRecord.findById(datas.id);
+    if (DRUGMES.includes(Object.keys(datas)[1])) {
+      intity = await Drug.findById(intity.dataValues['dno']);
+    }
     delete datas.id;
-    await out.update(datas);
+    await intity.update(datas);
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/output');
     await next();
   } catch (e) {
     ctx.response.status = 404;
@@ -93,7 +101,7 @@ const deletePurchase = async (ctx, next) => {
     const pur = await Purchase.findById(datas.id);
     await pur.destroy();
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/purchase');
     await next();
   } catch (e) {
     ctx.response.status = 404;
@@ -104,12 +112,19 @@ const deletePurchase = async (ctx, next) => {
 
 const updatePurchase = async (ctx, next) => {
   try {
+    const SUPMES = ['linkman', 'address', 'phone'];
+    const DRUGMES = ['name', 'vender', 'specification'];
     const datas = ctx.request.query;
-    const pur = await OutRecord.findById(datas.id);
+    let intity = await Purchase.findById(datas.id);
+    if (DRUGMES.includes(Object.keys(datas)[1])) {
+      intity = await Drug.findById(intity.dataValues['dno']);
+    } else if (SUPMES.includes(Object.keys(datas)[1])) {
+      intity = await Supplier.findById(intity.dataValues['sno']);
+    } 
     delete datas.id;
-    await pur.update(datas)
+    await intity.update(datas)
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/purchase');
     await next();
   } catch (e) {
     ctx.response.status = 404;
@@ -124,7 +139,7 @@ const deleteStore = async (ctx, next) => {
     const store = await Store.findById(datas.id);
     await store.destroy();
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/storage');
     await next();
   } catch (e) {
     ctx.response.status = 404;
@@ -135,12 +150,16 @@ const deleteStore = async (ctx, next) => {
 
 const updateStore = async (ctx, next) => {
   try {
+    const DRUGMES = ['name', 'vender', 'specification']; 
     const datas = ctx.request.query;
-    const store = await Store.findById(datas.id);
+    let intity = await Store.findById(datas.id);
+    if (DRUGMES.includes(Object.keys(datas)[1])) {
+      intity = await Drug.findById(intity.dataValues['dno']);
+    }
     delete datas.id;
-    await store.update(datas);
+    await intity.update(datas);
     ctx.response.status = 200;
-    ctx.response.redirect('/reserve');
+    ctx.response.redirect('/storage');
     await next();
   } catch (e) {
     ctx.response.status = 404;

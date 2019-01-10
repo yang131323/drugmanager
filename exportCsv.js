@@ -35,4 +35,14 @@ const exportTable = function (header, datas) {
   }
 }
 
+// 客户端导出表格
+// let funn = function () {
+//   let html = '\<html\>\<head\>\<meta charset=\'utf-8\'\/\>\<head\>\<body\>' + document.getElementsByTagName('table')[0].outerHTML + '\<\/body\>\<\/html>';
+//   let blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+//   let exportA = document.getElementById('export');
+//   exportA.href = URL.createObjectURL(blob);
+//   exportA.download='药品表格.xls';
+// };
+// funn();
+
 module.exports = { exportTable }

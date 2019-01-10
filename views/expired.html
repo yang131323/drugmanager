@@ -10,9 +10,10 @@
 {% block main %}
   <main>
     <div class="table-title">{{title}}
-      <button onclick="exportExcel('/expired')" class="export-button">导出</button>
+      <button onclick="exportExcel('/reserve')" class="export-button">导出csv</button>
+      <button onclick="exportClient('expire-table', '过期药品状况表')" class="export-button"><a id="export-button-excel">导出Excel</a></button>
     </div>
-    <table cellspacing="0" class="expired-table"  title="点击相应单元格进行编辑">
+    <table cellspacing="0" class="expired-table"  title="点击相应单元格进行编辑" id="expire-table">
       <tr>
         {% for it in order %}
           <th>{{label[it]}}</th>
@@ -26,9 +27,11 @@
             {% if it === 'edit' %}
             <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, '/put/expire')">{{item[it]}}</td>
             {% elif it === 'del' %}
-            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/expire')">{{item[it]}}</td>
+            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/expire', false)">{{item[it]}}</td>
             {% elif it === 'id' %}
             <td>{{item[it]}}</td>
+            {% elif (it === 'odate' or it === 'quantity') %}
+            <td onblur="editOperate(this, 'expired', 5, '/put/expire')">{{item[it]}}</td>
             {% else %}
             <td contenteditable onblur="editOperate(this, 'expired', 5, '/put/expire')">{{item[it]}}</td>
             {% endif %}

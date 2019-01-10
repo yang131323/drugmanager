@@ -35,8 +35,13 @@ const addListen = function () {
   if(mainButton[recordState.index]) { mainButton[recordState.index].style.color = recordState.color; }
 };
 
-function delOperate (item, url) {
-  const dom = item.previousElementSibling.previousElementSibling;
+function delOperate (item, url, type = true) {
+  let dom = null;
+  if (type) {
+    dom = item.previousElementSibling.previousElementSibling
+  } else {
+    dom = item.previousElementSibling;
+  }
   console.log('del', dom.innerText);
   window.location = url + '?' + 'id=' + dom.innerText;
 }
@@ -62,6 +67,22 @@ function saleDrug (item, url) {
 
 function exportExcel(url, type = 'export') {
   window.location = url + '?type=' + type;
+}
+
+function exportClient (tableId, tableName) {
+  const dom = document.getElementById(tableId);
+  const excelTemplate = `<html><head><meta charset="utf-8"></head><body>${dom.outerHTML}</body></html>`;
+  const bolb = new Blob([excelTemplate], {type: 'application/vnd.ms-excel'});
+  const exportURL = document.getElementById('export-button-excel');
+  exportURL.href = URL.createObjectURL(bolb);
+  exportURL.download = tableName + '.xls';
+}
+
+function searchResult (event, Dom, url) {
+  console.log('进来了');
+  if (event.charCode !== 13) { return; }
+  const value = Dom.value;
+  window.location = url + '?id=' + value;
 }
 
 addListen();

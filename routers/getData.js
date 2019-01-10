@@ -5,7 +5,12 @@ const { convert } = require('../common');
 
 const indexPage = async (ctx, next) => {
   try {
-    const drugs = await Drug.findAll();
+    let drugs = null;
+    if (Object.keys(ctx.request.query).length > 0 && !ctx.request.url.includes('export')) {
+      drugs = await Drug.findAll({where: {id: ctx.request.query.id}});
+    } else {
+      drugs = await Drug.findAll();
+    }
     const datas = [];
     let type = {};
     if (ctx.request.url.includes('export')) { type = ctx.request.query; }

@@ -10,9 +10,10 @@
 {% block main %}
   <main>
     <div class="table-title">{{title}}
-      <button onclick="exportExcel('/storage')" class="export-button">导出</button>
+      <button onclick="exportExcel('/reserve')" class="export-button">导出csv</button>
+      <button onclick="exportClient('drug-store', '药品入库表')" class="export-button"><a id="export-button-excel">导出Excel</a></button>
     </div>
-    <table cellspacing="0" class="storage-table" title="点击相应单元格进行编辑">
+    <table cellspacing="0" class="storage-table" title="点击相应单元格进行编辑" id="drug-store">
       <tr>
         {% for it in order %}
           <th>{{label[it]}}</th>
@@ -26,7 +27,7 @@
             {% if it === 'edit' %}
             <td style="color: #0066FF; text-decoration: underline; cursor: pointer;" onclick="editOperate(this, '/put/store')">{{item[it]}}</td>
             {% elif it === 'del' %}
-            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/store')">{{item[it]}}</td>
+            <td style="color: #E80000; text-decoration: underline; cursor: pointer;" onclick="delOperate(this, '/delete/store', false)">{{item[it]}}</td>
             {% elif it === 'id' %}
             <td>{{item[it]}}</td>
             {% else %}
