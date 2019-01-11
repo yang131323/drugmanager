@@ -1,0 +1,56 @@
+create table suppliers (
+id char(10) primary key,
+address varchar(50),
+linkman varchar(20),
+phone char(11),
+createdAt bigint(50),
+updatedAt date,
+version varchar(10)
+);
+create table drugs (
+id char(10) primary key,
+sno char(10) not null,
+name varchar(20),
+vender varchar(20),
+specification varchar(10),
+usag varchar(100),
+edate date,
+reserve int(6),
+price float(6,2) not null,
+createdAt bigint(50),
+updatedAt date,
+version varchar(10),
+constraint dsno foreign key dforeign(sno) references suppliers(id) on update cascade on delete cascade
+);
+create table purchases (
+id char(10) primary key,
+quantity int(6) not null,
+sno char(10) not null,
+dno char(10) not null,
+pdate date,
+createdAt bigint(50),
+updatedAt date,
+version varchar(10),
+constraint psno foreign key pforeign(sno) references suppliers(id) on update cascade on delete cascade,
+constraint pdno foreign key pforeign(dno) references drugs(id) on update cascade on delete cascade
+);
+create table storages (
+id char(20) primary key,
+dno char(10) not null,
+quantity int(6) not null,
+sdate date,
+createdAt bigint(50),
+updatedAt date,
+version varchar(10),
+constraint sdno foreign key sforeign(dno) references drugs(id) on update cascade on delete cascade
+);
+create table outrecords (
+id char(20) primary key,
+dno char(10) not null,
+quantity int(6) not null,
+odate date,
+createdAt bigint(50),
+updatedAt date,
+version varchar(10),
+constraint odno foreign key oforeign(dno) references drugs(id) on update cascade on delete cascade
+);

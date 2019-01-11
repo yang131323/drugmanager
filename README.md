@@ -11,4 +11,4 @@
 1. 使用npm install（或者cnpm install）安装依赖
 2. 配置数据库，以及在相应数据库中建表结构
 3. 运行npm run start或者cnpm run start启动程序
-4. 打开localhost:3300/reserve或者127.0.0.1/reserve
+4. 浏览器打开localhost:3300/reserve或者127.0.0.1/reserve

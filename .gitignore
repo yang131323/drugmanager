@@ -4,6 +4,3 @@ dist/
 .vscode/
 .idea/
 customer.config.js
-db.js
-package.json
-config.js
